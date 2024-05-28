@@ -2,7 +2,7 @@
   "name": "invoice-map",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://USERNAME.github.io/invoice-map",
+  "homepage": "http://houcinehassine.github.io/invoicemap",
   "dependencies": {
     "bootstrap": "^5.3.3",
     "react": "^18.3.1",
