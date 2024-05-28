@@ -11,6 +11,8 @@ const PocketPayback = lazy(() => import('./Page/PocketPayback'));
 const Debts = lazy(() => import('./Page/Debts'));
 const Credit = lazy(() => import('./Page/Credit'));
 const Subscriptions = lazy(() => import('./Page/Subscriptions'));
+import Archive = lazy(() => import('./Page/Archive'));
+
 
 function App() {
   return (
