@@ -1,15 +1,17 @@
-import React from 'react';
-import './App.css';
+import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { MonthlyDataProvider } from './Help/MonthlyDataContext';
-import Home from './Page/Home';
-import Income from './Page/Income';
-import MonthlyExpenses from './Page/MonthlyExpenses';
-import ExtraExpenses from './Page/ExtraExpenses';
-import PocketPayback from './Page/PocketPayback';
-import Debts from './Page/Debts';
-import Credit from './Page/Credit';
-import Subscriptions from './Page/Subscriptions'; // Import Subscriptions
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+const Home = lazy(() => import('./Page/Home'));
+const Income = lazy(() => import('./Page/Income'));
+const MonthlyExpenses = lazy(() => import('./Page/MonthlyExpenses'));
+const ExtraExpenses = lazy(() => import('./Page/ExtraExpenses'));
+const PocketPayback = lazy(() => import('./Page/PocketPayback'));
+const Debts = lazy(() => import('./Page/Debts'));
+const Credit = lazy(() => import('./Page/Credit'));
+const Archive = lazy(() => import('./Page/Archive'));
+const Subscriptions = lazy(() => import('./Page/Subscriptions'));
 
 function App() {
   return (
@@ -25,23 +27,26 @@ function App() {
             <Link to="/monthly-expenses">Monthly Expenses</Link>
             <Link to="/extra-expenses">Extra Expenses</Link>
             <Link to="/pocket-payback">Pocket - PAYBACK</Link>
-            <Link to="/subscriptions">Subscriptions</Link> {/* Add Subscriptions link */}
+            <Link to="/subscriptions">Subscriptions</Link>
             <h2>Credit</h2>
             <Link to="/credit">TF Bank</Link>
             <Link to="/debts">Debts</Link>
           </div>
           <div className="content">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/home" element={<Home />} />
-              <Route path="/income" element={<Income />} />
-              <Route path="/monthly-expenses" element={<MonthlyExpenses />} />
-              <Route path="/extra-expenses" element={<ExtraExpenses />} />
-              <Route path="/pocket-payback" element={<PocketPayback />} />
-              <Route path="/debts" element={<Debts />} />
-              <Route path="/credit" element={<Credit />} />
-              <Route path="/subscriptions" element={<Subscriptions />} /> {/* Add Subscriptions route */}
-            </Routes>
+            <Suspense fallback={<div>Loading...</div>}>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/home" element={<Home />} />
+                <Route path="/income" element={<Income />} />
+                <Route path="/monthly-expenses" element={<MonthlyExpenses />} />
+                <Route path="/extra-expenses" element={<ExtraExpenses />} />
+                <Route path="/pocket-payback" element={<PocketPayback />} />
+                <Route path="/debts" element={<Debts />} />
+                <Route path="/credit" element={<Credit />} />
+                <Route path="/archive" element={<Archive />} />
+                <Route path="/subscriptions" element={<Subscriptions />} />
+              </Routes>
+            </Suspense>
           </div>
         </div>
       </Router>
