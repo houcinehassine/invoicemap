@@ -10,7 +10,6 @@ const ExtraExpenses = lazy(() => import('./Page/ExtraExpenses'));
 const PocketPayback = lazy(() => import('./Page/PocketPayback'));
 const Debts = lazy(() => import('./Page/Debts'));
 const Credit = lazy(() => import('./Page/Credit'));
-const Archive = lazy(() => import('./Page/Archive'));
 const Subscriptions = lazy(() => import('./Page/Subscriptions'));
 
 function App() {
@@ -43,7 +42,6 @@ function App() {
                 <Route path="/pocket-payback" element={<PocketPayback />} />
                 <Route path="/debts" element={<Debts />} />
                 <Route path="/credit" element={<Credit />} />
-                <Route path="/archive" element={<Archive />} />
                 <Route path="/subscriptions" element={<Subscriptions />} />
               </Routes>
             </Suspense>
